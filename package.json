@@ -24,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/yaljamal-401-advanced-javascript/storefront/issues"
   },
-  "homepage": "/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "node-sass": "^4.14.1",
