@@ -1,0 +1,27 @@
+body,
+html {
+  // position: relative;
+  min-height: 100vh;
+  margin: auto;
+  width: 95%;
+  // height: 100%;
+  background-color: white;
+  // display: flex;
+
+  #footer {
+    width: 100%;
+    background-color: #3f51b5;
+    top: 100%;
+
+    margin-top: auto;
+
+    // height: ;
+    p {
+      color: white;
+      text-align: center;
+    }
+  }
+  img {
+    width: 15%;
+  }
+}
