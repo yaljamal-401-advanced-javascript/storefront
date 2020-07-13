@@ -1,34 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-/////
-
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 const Products = (props) => {
-//   console.log('products', props.catAndProReducer.products);
-//   console.log('props.activeCategory', props.catAndProReducer.activeCategory);
-
 
   return (
     <>
       <h3>the Products</h3>
       <div className='products'>
-        {props.catAndProReducer.products.filter(allProducts => allProducts.category === props.catAndProReducer.activeCategory )
+        {props.catAndProReducer.products.filter(allProducts => allProducts.category === props.catAndProReducer.activeCategory)
           .map(product => {
 
             return (
-              <div className='one-product' key={product.name}>
-                <h3>Product Name : {product.name}</h3>
-                <img src={`${product.img}`} alt='hi' />
-                <p className='category'>Product Category : {product.category}</p>
-                <p className='inStock'>In Stock : {product.inStock}</p>
-                <p className='price'>Price : {product.price}</p>
+              <>
+                < Card style={{ width: '18rem', float: 'left' }}>
+                  <Card.Img variant="top" src={`${product.img}`} style={{ width: '80%' }} />
+                  <Card.Body>
+                    <Card.Title>Product Category : {product.category}</Card.Title>
+                    <Card.Text>
+                      In Stock : {product.inStock}
+                    </Card.Text>
+                    <Card.Text>
+                      Price : {product.price}
+                    </Card.Text>
+                  </Card.Body>
+                  <Button variant="outline-primary">Add To Cart</Button>
+                  <Button variant="outline-primary">View Detalis</Button>
 
-
-              </div>
+                </Card>
+              </>
             );
           })}
-
       </div>
     </>
   );
