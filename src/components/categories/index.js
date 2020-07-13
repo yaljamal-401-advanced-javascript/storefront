@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { triggerActive } from '../../store/reducer';
 import { Button, ButtonGroup } from '@material-ui/core';
-import './categories.scss';
 const Categories = (props) => {
   return (
     <>
