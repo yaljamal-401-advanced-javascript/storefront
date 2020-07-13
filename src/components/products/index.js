@@ -25,7 +25,7 @@ const Products = (props) => {
                       Price : {product.price}
                     </Card.Text>
                   </Card.Body>
-                  <Button variant="outline-primary">Add To Cart</Button>
+                  <Button variant="outline-primary" >Add To Cart</Button>
                   <Button variant="outline-primary">View Detalis</Button>
 
                 </Card>

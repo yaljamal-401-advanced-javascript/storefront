@@ -7,7 +7,16 @@ html {
   // height: 100%;
   background-color: white;
   // display: flex;
-
+  #cart {
+    float: right;
+    margin-top: 2%;
+  }
+  #logo {
+    float: left;
+  }
+  main {
+    clear: both;
+  }
   #footer {
     clear: both;
     width: 100%;
