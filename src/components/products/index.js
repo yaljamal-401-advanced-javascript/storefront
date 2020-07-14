@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 
-import {triggerTheStock} from '../../store/products-reducer';
-import {addToCart} from '../../store/cart-reducer';
-
+import { triggerTheStock } from '../../store/products-reducer';
+import { addToCart } from '../../store/cart-reducer';
+import { getRemoteData, putRemoteData } from '../../store/actions';
 /////
 
 
 const Products = (props) => {
-  //   console.log('products', props.catAndProReducer.products);
-  //   console.log('props.activeCategory', props.catAndProReducer.activeCategory);
 
-
+  const fetchData = (x) => {
+    props.get(x);
+  };
+  useEffect(() => {
+    fetchData('products');
+  }, []);
   return (
     <>
       <h3 className='category-header'>{props.categoryReducer.activeCategory.toUpperCase()}</h3>
       <div className='products'>
-        {props.productsReducer.filter(product => product.category === props.categoryReducer.activeCategory && product.inStock>0)
+        {props.productsReducer.products.filter(product => product.category === props.categoryReducer.activeCategory && product.inStock > 0)
           .map(product => {
 
             return (
@@ -29,7 +32,7 @@ const Products = (props) => {
                 <p className='price'>Price : {product.price}</p>
 
                 <div className='buttons'>
-                  <Button variant="contained" color="primary" aria-label="outlined secondary button group" onClick={()=>{props.triggerTheStock(product.name); props.addToCart(product);}} >
+                  <Button variant="contained" color="primary" aria-label="outlined secondary button group" onClick={() => { props.triggerTheStock(product.name); props.addToCart(product); }} >
                     Add To Cart
                   </Button>
                   <Button variant="contained" color="primary" aria-label="outlined secondary button group">
@@ -48,14 +51,13 @@ const Products = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    categoryReducer: state.categoryReducer,
-    productsReducer: state.productsReducer,
-    cartReducer: state.cartReducer,
-  };
-};
-const mapDispatchToProps ={triggerTheStock,addToCart};
+const mapStateToProps = dispatch => ({
+  get: (hi) => dispatch(getRemoteData(hi)),
+  put: (id, data) => dispatch(putRemoteData(id, data, 'products')),
+  triggerTheStock: (name) => dispatch(triggerTheStock(name)),
+  addToCart: (product) => dispatch(addToCart(product))
+});
+const mapDispatchToProps = { triggerTheStock, addToCart };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
 
