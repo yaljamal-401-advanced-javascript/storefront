@@ -2,14 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { triggerActive } from '../../store/reducer';
 import { Button, ButtonGroup } from '@material-ui/core';
+
 const Categories = (props) => {
   return (
     <>
+      <h3>Categories</h3>
       <div className='categories'>
-        <h2>Categories</h2>
         <ButtonGroup variant="contained" color="primary" aria-label="outlined secondary button group">
-          {props.catAndProReducer.categories.map(category => {
+
+          {props.categoryReducer.categories.map(category => {
             return (
+              // console.log(props),
               <Button key={category.name} onClick={() => props.triggerActive(category.name)}>
                 {category.name}
               </Button>
@@ -23,7 +26,10 @@ const Categories = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { catAndProReducer: state.catAndProReducer };
+  return {
+    categoryReducer: state.categoryReducer,
+    productsReducer: state.productsReducer,
+  };
 };
 
 const mapDispatchToProps = { triggerActive };
