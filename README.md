@@ -7,7 +7,7 @@
 ### Links and Resources
 
 - [submission PR](https://github.com/yaljamal-401-advanced-javascript/storefront/pull/1)
-- [netlify](https://lab37-redux.netlify.app/)
+- [netlify](https://lab38-redux.netlify.app/)
 
 ### Setup
 
