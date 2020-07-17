@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { triggerActive } from '../../store/reducer';
 import { Button, ButtonGroup } from '@material-ui/core';
-
+import { getRemoteData, putRemoteData } from '../../store/actions';
 const Categories = (props) => {
+  const fetchData = (x) => {
+    props.get(x);
+  };
+  useEffect(() => {
+    fetchData('categories');
+  }, []);
   return (
     <>
       <h3>Categories</h3>
@@ -32,6 +38,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { triggerActive };
+const mapDispatchToProps = dispatch => ({
+  get: (hi) => dispatch(getRemoteData(hi)),
+  put: (id, data) => dispatch(putRemoteData(id, data, 'categories')),
+  triggerActive: (name) => dispatch(triggerActive(name)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
