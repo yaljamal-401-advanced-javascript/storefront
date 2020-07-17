@@ -10,7 +10,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "lint 'src/**/*.js'"
+    "lint": "eslint 'src/**/*.js'"
   },
   "homepage": "/",
   "eslintConfig": {

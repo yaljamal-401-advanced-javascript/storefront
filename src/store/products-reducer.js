@@ -50,7 +50,7 @@ export default (state = initialState, action) => {
           } else {
             return product;
           }
-        })
+        }),
       };
     case 'GETPRO':
       return { ...state, products: payload.results };

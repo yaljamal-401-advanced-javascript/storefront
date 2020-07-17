@@ -4,11 +4,7 @@ import { Button } from '@material-ui/core';
 
 import { triggerTheStock } from '../../store/products-reducer';
 import { addToCart } from '../../store/cart-reducer';
-<<<<<<< HEAD
-
-=======
 import { getRemoteData, putRemoteData } from '../../store/actions';
->>>>>>> 908856a7127da0c72c01acb6fee73a1204eec809
 /////
 
 
@@ -24,11 +20,7 @@ const Products = (props) => {
     <>
       <h3 className='category-header'>{props.categoryReducer.activeCategory.toUpperCase()}</h3>
       <div className='products'>
-<<<<<<< HEAD
-        {props.productsReducer.filter(product => product.category === props.categoryReducer.activeCategory && product.inStock > 0)
-=======
         {props.productsReducer.products.filter(product => product.category === props.categoryReducer.activeCategory && product.inStock > 0)
->>>>>>> 908856a7127da0c72c01acb6fee73a1204eec809
           .map(product => {
 
             return (
@@ -59,22 +51,12 @@ const Products = (props) => {
   );
 };
 
-<<<<<<< HEAD
-const mapStateToProps = (state) => {
-  return {
-    categoryReducer: state.categoryReducer,
-    productsReducer: state.productsReducer,
-    cartReducer: state.cartReducer,
-  };
-};
-=======
 const mapStateToProps = dispatch => ({
   get: (hi) => dispatch(getRemoteData(hi)),
   put: (id, data) => dispatch(putRemoteData(id, data, 'products')),
   triggerTheStock: (name) => dispatch(triggerTheStock(name)),
-  addToCart: (product) => dispatch(addToCart(product))
+  addToCart: (product) => dispatch(addToCart(product)),
 });
->>>>>>> 908856a7127da0c72c01acb6fee73a1204eec809
 const mapDispatchToProps = { triggerTheStock, addToCart };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
