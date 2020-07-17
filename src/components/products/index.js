@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 
-import {triggerTheStock} from '../../store/products-reducer';
-import {addToCart} from '../../store/cart-reducer';
+import { triggerTheStock } from '../../store/products-reducer';
+import { addToCart } from '../../store/cart-reducer';
 
 /////
 
@@ -17,7 +17,7 @@ const Products = (props) => {
     <>
       <h3 className='category-header'>{props.categoryReducer.activeCategory.toUpperCase()}</h3>
       <div className='products'>
-        {props.productsReducer.filter(product => product.category === props.categoryReducer.activeCategory && product.inStock>0)
+        {props.productsReducer.filter(product => product.category === props.categoryReducer.activeCategory && product.inStock > 0)
           .map(product => {
 
             return (
@@ -29,7 +29,7 @@ const Products = (props) => {
                 <p className='price'>Price : {product.price}</p>
 
                 <div className='buttons'>
-                  <Button variant="contained" color="primary" aria-label="outlined secondary button group" onClick={()=>{props.triggerTheStock(product.name); props.addToCart(product);}} >
+                  <Button variant="contained" color="primary" aria-label="outlined secondary button group" onClick={() => { props.triggerTheStock(product.name); props.addToCart(product); }} >
                     Add To Cart
                   </Button>
                   <Button variant="contained" color="primary" aria-label="outlined secondary button group">
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => {
     cartReducer: state.cartReducer,
   };
 };
-const mapDispatchToProps ={triggerTheStock,addToCart};
+const mapDispatchToProps = { triggerTheStock, addToCart };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
 
