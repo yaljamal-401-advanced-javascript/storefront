@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const initialState = {
   categories: [
     { name: 'electronics', displayName: 'Elecronics', description: 'hi im electronics' },
@@ -11,13 +12,13 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-  case 'CATEGORYTYPE':
-    const activeCategory = payload;
-    // console.log('activeCategory',state.activeCategory);      
-    return { ...state, activeCategory };
+    case 'CATEGORYTYPE':
+      const activeCategory = payload;
+      // console.log('activeCategory',state.activeCategory);      
+      return { ...state, activeCategory };
 
-  default:
-    return state;
+    default:
+      return state;
   }
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const initialState = {
   items: [],
   counter: 0,
@@ -7,7 +8,6 @@ const initialState = {
 export default ((state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    // eslint-disable-next-line indent
     case 'ADDTOCART':
       let existedItem = state.items.find(item => item.name === payload.name);
 

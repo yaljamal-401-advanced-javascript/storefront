@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const initialState = [
   {
     name: 'TV', category: 'electronics', price: 699.00, inStock: 5,
@@ -36,8 +37,6 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case 'CATEGORYTYPE':
-      // const activeCategory = payload;
-      // console.log('activeCategory',state.activeCategory);      
       return [...state];
 
     case 'STOCKREDUCE':

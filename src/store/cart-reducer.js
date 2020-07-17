@@ -1,35 +1,36 @@
+/* eslint-disable indent */
 const initialState = {
-  items:[],
-  counter:0,
+  items: [],
+  counter: 0,
 };
-  
+
 
 export default ((state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-  case 'ADDTOCART':
-   
-    let existedItem= state.items.find(item=> item.name === payload.name);
+    case 'ADDTOCART':
 
-    if(existedItem){
-      existedItem.quantity += 1; 
-      return{
-        ...state,
-        counter: state.counter + 1, 
-      };
-    }else{
-      payload.quantity = 1;
-      return{
-        ...state,
-        items: [...state.items, payload],
-        counter : state.counter + 1,
-      };
-        
-    }
-   
+      let existedItem = state.items.find(item => item.name === payload.name);
 
-  default:
-    return state;
+      if (existedItem) {
+        existedItem.quantity += 1;
+        return {
+          ...state,
+          counter: state.counter + 1,
+        };
+      } else {
+        payload.quantity = 1;
+        return {
+          ...state,
+          items: [...state.items, payload],
+          counter: state.counter + 1,
+        };
+
+      }
+
+
+    default:
+      return state;
 
   }
 
