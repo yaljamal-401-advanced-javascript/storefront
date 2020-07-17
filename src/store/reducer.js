@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const initialState = {
   // categories: [
   //   { name: 'electronics', displayName: 'Elecronics', description: 'hi im electronics' },
@@ -15,6 +16,7 @@ export default (state = initialState, action) => {
       const activeCategory = payload;
       // console.log('activeCategory',state.activeCategory);      
       return { ...state, activeCategory };
+
     case 'GETCAT':
       return { ...state, categories: payload.results };
     default:
