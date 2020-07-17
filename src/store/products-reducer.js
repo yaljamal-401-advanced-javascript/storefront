@@ -31,6 +31,7 @@ const initialState = [
 ];
 
 
+
 ///reducer
 export default (state = initialState, action) => {
   const { type, payload } = action;
@@ -39,15 +40,20 @@ export default (state = initialState, action) => {
     case 'CATEGORYTYPE':
       return [...state];
 
+
     case 'STOCKREDUCE':
 
-      return state.map(product => {
-        if (product.name === payload) {
-          return { ...product, inStock: product.inStock - 1 };
-        } else {
-          return product;
-        }
-      });
+      return {
+        ...state, products: state.products.map(product => {
+          if (product.name === payload) {
+            return { ...product, inStock: product.inStock - 1 };
+          } else {
+            return product;
+          }
+        })
+      };
+    case 'GETPRO':
+      return { ...state, products: payload.results };
     default:
       return state;
   }

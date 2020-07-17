@@ -6,12 +6,13 @@
   "scripts": {
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
-    "build": "CI= react-scripts build",
+    "build": " react-scripts build",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.js'"
   },
+  "homepage": "/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -37,7 +38,9 @@
     "react-script": "^2.0.5",
     "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "superagent": "^5.3.1"
   },
   "browserslist": {
     "production": [

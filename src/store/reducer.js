@@ -1,11 +1,11 @@
 /* eslint-disable indent */
 const initialState = {
-  categories: [
-    { name: 'electronics', displayName: 'Elecronics', description: 'hi im electronics' },
-    { name: 'food', displayName: 'Food', description: 'hi im food' },
-    { name: 'clothing', displayName: 'Clothing', description: 'hi im clothes' },
-  ],
-
+  // categories: [
+  //   { name: 'electronics', displayName: 'Elecronics', description: 'hi im electronics' },
+  //   { name: 'food', displayName: 'Food', description: 'hi im food' },
+  //   { name: 'clothing', displayName: 'Clothing', description: 'hi im clothes' },
+  // ],
+  categories: [],
   activeCategory: '',
 };
 export default (state = initialState, action) => {
@@ -17,6 +17,8 @@ export default (state = initialState, action) => {
       // console.log('activeCategory',state.activeCategory);      
       return { ...state, activeCategory };
 
+    case 'GETCAT':
+      return { ...state, categories: payload.results };
     default:
       return state;
   }
